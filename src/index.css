@@ -15,3 +15,63 @@
     --resume-font: Georgia, 'Times New Roman', serif;
 }
 
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font);
+}
+
+/* Personal Form */
+.form-section {
+    padding: 32px;
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+}
+
+.section-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--text);
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 16px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 6px;
+    display: block;
+}
+
+.form-group input, .form-group textarea{
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    font-size: 14px;
+    font-family: var(--font);
+}
+
+.form-group input:focus {
+    border-color: var(--primary);
+}
+
+textarea {
+    min-height: 100px;
+    resize: vertical;
+}
