@@ -1,5 +1,6 @@
 import ExperienceForm from "./sections/ExperienceForm"
 import PersonalInfoForm from "./sections/PersonalInfoForm"
+import SkillsForm from "./sections/SkillsForm"
 
 function App() {
   
@@ -8,6 +9,7 @@ function App() {
     <>
       <PersonalInfoForm/>
       <ExperienceForm/>
+      <SkillsForm/>
     </>
   )
 }

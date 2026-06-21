@@ -96,3 +96,60 @@ textarea {
     font-weight: var(--weight-body);
     color: white;
 }
+
+.skill-input {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.skill-input input {
+    width: 50%;
+    padding: 10px 12px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    font-size: 14px;
+    font-family: var(--font);
+}
+
+.skill-input button {
+    padding: 10px 18px;
+    border: 1px solid var(--border);
+    background-color: var(--primary);
+    color: white;
+    border-radius: 8px;
+}
+
+.skills-tags {
+    margin: 50px 100px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.tag {
+    display: flex;
+    gap: 10px;
+    padding: 6px 12px;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    background-color: var(--surface);
+    align-items: baseline;
+    transition: ease 0.3s;
+}
+
+.tag:hover {
+    border-color: var(--muted);
+}
+
+.tag button {
+    background-color: transparent;
+    border: none;
+    color: var(--muted);
+    font-weight: bold;
+    transition: ease 0.2s;
+}
+
+.tag button:hover {
+    color: var(--primary);
+}
