@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 
-function SkillsForm() {
-  const [skills, setSkills] = useState([]);
+function SkillsForm({skills, setSkills}) {
   const [currentSkill, setCurrentSkill] = useState("");
 
   function addSkill() {

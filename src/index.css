@@ -25,7 +25,7 @@ body {
     font-family: var(--font);
 }
 
-/* Personal Form */
+/* Forms */
 .form-section {
     padding: 32px;
     background-color: var(--surface);
@@ -152,4 +152,81 @@ textarea {
 
 .tag button:hover {
     color: var(--primary);
+}
+
+/* Forms End */
+
+/* Resume Preview */
+.resume-preview {
+    width: 794px;
+    min-height: 1123px;
+    background-color: white;
+    padding: 48px;
+    font-family: var(--resume-font);
+    color: var(--text);
+    margin: 0 auto;
+    border: 1px solid var(--muted);
+}
+
+.resume-header h1 {
+    font-size: 28px;
+    font-weight: var(--weight-display);
+}
+
+.resume-header p {
+    font-size: 13px;
+    color: var(--muted);
+    margin-top: 4px;
+}
+
+.resume-section {
+    margin-top: 24px;
+}
+
+.resume-section h2 {
+    font-size: 11px;
+    font-weight: var(--weight-display);
+    letter-spacing: 0.15rem;
+    text-transform: uppercase;
+}
+
+.resume-divider {
+    height: 1px;
+    background-color: black;
+    margin: 6px 0;
+}
+
+.resume-entry {
+    margin-bottom: 16px;
+}
+
+.resume-entry-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.resume-entry-header span:first-child {
+    font-weight: var(--weight-display);
+    font-size: 14px;
+}
+
+.resume-entry-header span:last-child {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.resume-date {
+    font-size: 12px;
+    margin: 2px 6px;
+    color: var(--muted);
+}
+
+.resume-skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.resume-skills span {
+    font-size: 13px;
 }

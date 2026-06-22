@@ -1,10 +1,6 @@
 import React, { useState } from 'react'
 
-function EducationForm() {
-  const [education, setEducation] = useState([
-    {school: "", degree: "", start_date: "", end_date: ""}
-  ]);
-
+function EducationForm({education, setEducation}) {
   function handleChange(index, e) {
     const updated = [...education];
     updated[index][e.target.name] = e.target.value;
@@ -48,7 +44,7 @@ function EducationForm() {
             </div>
             <div className="form-group">
               <label htmlFor="">End Date</label>
-              <input type="text" name="end_date" id="" value={edu.end_date} onChange={(e) => handleChange(index,e)}/>
+              <input type="date" name="end_date" id="" value={edu.end_date} onChange={(e) => handleChange(index,e)}/>
             </div>
           </div>
 

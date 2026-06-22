@@ -1,14 +1,6 @@
 import React, { useState } from 'react'
 
-function PersonalInfoForm() {
-  const [personalInfo, setPersonalInfo] = useState({
-    fullname: "",
-    email: "",
-    phone: "",
-    location: "",
-    linkedin: "",
-    summary: ""
-  })
+function PersonalInfoForm({personalInfo, setPersonalInfo}) {
 
   function handleChange(e) {
     setPersonalInfo({

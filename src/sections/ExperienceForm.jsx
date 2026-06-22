@@ -1,11 +1,6 @@
 import React, { useState } from 'react'
 
-function ExperienceForm() {
-  const [experiences, setExperiences] = useState([
-    {job_title: "", company: "", start_date: "", end_date: "", description: ""}
-  ]);
-  
-  
+function ExperienceForm({experiences, setExperiences}) {
   function handleChange(index, e) {
     const updated = [...experiences];
     updated[index][e.target.name] = e.target.value;
