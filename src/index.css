@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
 
 :root {
     --bg : #FAFAFA;
@@ -12,7 +12,7 @@
     --font: "Inter" , sans-serif;
     --weight-display: 700;
     --weight-body: 400;
-    --resume-font: Georgia, 'Times New Roman', serif;
+    --resume-font: "Lato", sans-serif;
 }
 
 * {
@@ -23,6 +23,37 @@
 
 body {
     font-family: var(--font);
+}
+
+.app-container {
+    display: flex;
+    gap: 32px;
+    padding: 32px;
+    min-height: 100vh;
+    align-items: flex-start;
+}
+
+.forms-panel {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.preview-panel {
+    flex: 1;
+    position: sticky;
+    top: 32px;
+}
+
+.preview-panel button {
+    padding: 8px 12px;
+    border: none;
+    background-color: var(--primary);
+    font-family: var(--font);
+    color: white;
+    border-radius: 4px;
+    margin-bottom: 16px;
 }
 
 /* Forms */
@@ -165,7 +196,9 @@ textarea {
     font-family: var(--resume-font);
     color: var(--text);
     margin: 0 auto;
-    border: 1px solid var(--muted);
+    border: 1px solid var(--border);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 .resume-header h1 {
@@ -173,10 +206,11 @@ textarea {
     font-weight: var(--weight-display);
 }
 
-.resume-header p {
+.resume-header p, a {
     font-size: 13px;
     color: var(--muted);
     margin-top: 4px;
+    text-decoration: none;
 }
 
 .resume-section {
@@ -188,6 +222,15 @@ textarea {
     font-weight: var(--weight-display);
     letter-spacing: 0.15rem;
     text-transform: uppercase;
+}
+
+.resume-section p {
+  margin-top: 8px;
+  font-size: 14px;
+  line-height: 1.6;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: pre-wrap;
 }
 
 .resume-divider {
@@ -210,7 +253,7 @@ textarea {
     font-size: 14px;
 }
 
-.resume-entry-header span:last-child {
+.resume-entry-header span:last-child, .company {
     color: var(--muted);
     font-size: 13px;
 }
@@ -222,6 +265,7 @@ textarea {
 }
 
 .resume-skills {
+    margin-top: 12px;
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
@@ -229,4 +273,8 @@ textarea {
 
 .resume-skills span {
     font-size: 13px;
+    padding: 4px 12px;
+    border: 1px solid var(--border);
+    border-radius: 50px;
+    text-align: center;
 }
