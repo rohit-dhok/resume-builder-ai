@@ -1,10 +1,37 @@
 import React, { useState } from 'react'
+import { improveDescription } from '../utils/ai_client';
 
 function ExperienceForm({experiences, setExperiences}) {
+  const [aiSuggestions, setAiSuggestions] = useState("");
+  const [loadingIndex, setLoadingIndex] = useState(null);
+  const [erroIndex, setErrorIndex] = useState(null);
+
   function handleChange(index, e) {
     const updated = [...experiences];
     updated[index][e.target.name] = e.target.value;
     setExperiences(updated);
+  }
+
+  async function handleImprove(index) {
+    if (experiences[index].description === "") return;
+    try {
+      setLoadingIndex(index);
+      const result = await improveDescription(experiences[index].description)
+      setAiSuggestions(result);
+    } catch {
+      setErrorIndex(index);
+      setTimeout(()=> setErrorIndex(null), 5000);
+
+    } finally {
+      setLoadingIndex(null);
+    }
+  }
+
+  function acceptAiSuggestion(index) {
+    const updated = [...experiences];
+    updated[index].description = aiSuggestions;
+    setExperiences(updated);
+    setAiSuggestions("");
   }
 
   function addExperience() {
@@ -52,10 +79,22 @@ function ExperienceForm({experiences, setExperiences}) {
               <div className="form-group">
                 <label htmlFor="description">Description</label>
                 <textarea name="description" id="" onChange={(e) => handleChange(index, e)} value={exp.description}></textarea>
+                <div className="form-btn">
+                  {exp.description && <button className='improveBtn' disabled={loadingIndex === index} onClick={async() => await handleImprove(index)}>{loadingIndex===index ? "Improving..." : erroIndex === index ? "API is Down" : "Improve with AI"}</button>}
+                </div>
+                {!aiSuggestions ? "" : (
+                  <div>
+                    <textarea name="" id="" value={aiSuggestions || "AI is currently unavaialble"} disabled={true}></textarea>
+                    <div className="form-btn">
+                      <button onClick={() => acceptAiSuggestion(index)}>Accept</button>
+                      <button onClick={() => setAiSuggestions("")}>Keep Original</button>
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
             <div className="form-btn">
-              <button type="button" onClick={(e) => deleteExperience(index)}>Remove this entry</button>
+              <button type="button" onClick={(e) => deleteExperience(index,e)}>Remove this entry</button>
             </div>
           </div>
         ))}

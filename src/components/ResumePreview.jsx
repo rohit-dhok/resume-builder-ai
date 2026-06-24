@@ -1,5 +1,6 @@
 import React from 'react'
 import { forwardRef } from 'react';
+import { improveDescription } from '../utils/ai_client';
 
 const ResumePreview = forwardRef(({personalInfo, experiences, education, skills}, ref) => {
   function formatDate(dateStr) {
