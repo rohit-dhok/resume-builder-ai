@@ -6,6 +6,7 @@ import PersonalInfoForm from "./sections/PersonalInfoForm"
 import SkillsForm from "./sections/SkillsForm"
 import EducationForm from "./sections/EducationForm"
 import ResumePreview from "./components/ResumePreview"
+import Navbar from "./components/Navbar"
 
 function App() {
   const resumeRef = useRef();
@@ -26,28 +27,34 @@ function App() {
   
   const handlePrint = useReactToPrint({
     contentRef: resumeRef,
-    documentTitle: `${personalInfo.fullname}_Resume`
+    documentTitle: `${personalInfo.fullname}_Resume`,
+    onBeforePrint: () => {
+      if( !personalInfo.fullname ) { alert("Please proivde your fullname!")}
+      return Promise.reject();
+    }
   })
 
   return (
-    <div className="app-container">
-      <div className="forms-panel">
-        <PersonalInfoForm personalInfo={personalInfo} setPersonalInfo={setPersonalInfo}/>
-        <ExperienceForm experiences={experiences} setExperiences={setExperiences}/>
-        <EducationForm education={education} setEducation={setEducation}/>
-        <SkillsForm skills={skills} setSkills={setSkills}/>
+    <>
+      <Navbar handlePrint={handlePrint}/>
+      <div className="app-container">
+        <div className="forms-panel">
+          <PersonalInfoForm personalInfo={personalInfo} setPersonalInfo={setPersonalInfo}/>
+          <ExperienceForm experiences={experiences} setExperiences={setExperiences}/>
+          <EducationForm education={education} setEducation={setEducation}/>
+          <SkillsForm skills={skills} setSkills={setSkills}/>
+        </div>
+        <div className="preview-panel">
+          <ResumePreview
+            ref = {resumeRef}
+            personalInfo={personalInfo}
+            experiences={experiences}
+            education={education}
+            skills={skills}
+          />
+        </div>
       </div>
-      <div className="preview-panel">
-        <button onClick={handlePrint}>Download PDF</button>
-        <ResumePreview
-          ref = {resumeRef}
-          personalInfo={personalInfo}
-          experiences={experiences}
-          education={education}
-          skills={skills}
-        />
-      </div>
-    </div>
+    </>
   )
 }
 

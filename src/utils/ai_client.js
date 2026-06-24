@@ -18,7 +18,7 @@ export async function improveDescription(text) {
             STRICT RULES:
 
             * Do NOT invent metrics, achievements, technologies, responsibilities, or outcomes
-            * Do NOT use asterisk as bullet, always use "•" before sentences.
+            * Do NOT use asterisk as bullet, always use "•" before sentences
             * Do NOT assume business impact that is not stated
             * Do NOT remove any information from the original
             * Do NOT merge or split bullet points

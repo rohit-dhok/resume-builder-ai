@@ -49,14 +49,14 @@ function EducationForm({education, setEducation}) {
           </div>
 
           <div className="form-btn">
-            <button type="button" onClick={() => deleteEducation(index)}>Remove this entry</button>
+            <button className="btn-danger" type="button" onClick={() => deleteEducation(index)}>Remove this entry</button>
           </div>
         </div>
       ))}
 
       <div className="section-divider"></div>
       <div className="form-btn">
-        <button type="button" onClick={addEducation}>+ Add Another Education</button>
+        <button className="btn-ghost" type="button" onClick={addEducation}>+ Add Another Education</button>
       </div>
     </div>
   )

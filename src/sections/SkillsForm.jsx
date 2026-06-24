@@ -5,6 +5,7 @@ function SkillsForm({skills, setSkills}) {
 
   function addSkill() {
     if (currentSkill === "") return;
+    if (skills.includes(currentSkill)) return;
     setSkills([...skills, currentSkill]);
     setCurrentSkill("");
   }
@@ -20,7 +21,7 @@ function SkillsForm({skills, setSkills}) {
 
       <div className="skill-input">
         <input type="text" name="skill" onKeyDown={(e) => {if (e.key === "Enter"){addSkill()}}} onChange={(e) => setCurrentSkill(e.target.value)} value={currentSkill}/>
-        <button onClick={addSkill}>+ Add</button>
+        <button className="btn-primary" onClick={addSkill}>+ Add</button>
       </div>
 
       <div className="skills-tags">

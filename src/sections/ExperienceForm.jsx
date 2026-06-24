@@ -80,7 +80,7 @@ function ExperienceForm({experiences, setExperiences}) {
                 <label htmlFor="description">Description</label>
                 <textarea name="description" id="" onChange={(e) => handleChange(index, e)} value={exp.description}></textarea>
                 <div className="form-btn">
-                  {exp.description && <button className='improveBtn' disabled={loadingIndex === index} onClick={async() => await handleImprove(index)}>{loadingIndex===index ? "Improving..." : erroIndex === index ? "API is Down" : "Improve with AI"}</button>}
+                  {exp.description && <button className='btn-ghost' disabled={loadingIndex === index} onClick={async() => await handleImprove(index)}>{loadingIndex===index ? "Improving..." : erroIndex === index ? "API is Down" : "Improve with AI"}</button>}
                 </div>
                 {!aiSuggestions ? "" : (
                   <div>
@@ -94,7 +94,7 @@ function ExperienceForm({experiences, setExperiences}) {
               </div>
             </div>
             <div className="form-btn">
-              <button type="button" onClick={(e) => deleteExperience(index,e)}>Remove this entry</button>
+              <button className="btn-danger" type="button" onClick={(e) => deleteExperience(index,e)}>Remove this entry</button>
             </div>
           </div>
         ))}
@@ -102,7 +102,7 @@ function ExperienceForm({experiences, setExperiences}) {
       <div className="section-divider"></div>
 
       <div className="form-btn">
-        <button type="button" onClick={addExperience}>+ Add Another Experience</button>
+        <button className="btn-ghost" type="button" onClick={addExperience}>+ Add Another Experience</button>
       </div>
     </div>
   )
